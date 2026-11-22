@@ -6,6 +6,8 @@
 
 ## 安装
 
+Steam 玩家可直接订阅[创意工坊版](https://steamcommunity.com/sharedfiles/filedetails/?id=3844150316)。订阅前请移除手动安装的副本。手动安装步骤如下。
+
 1. 下载 Releases 中的 `BlitzDoubleRelics-0.1.2.zip`。
 2. 退出游戏。在 Steam 库中右键游戏，选择「管理」→「浏览本地文件」。
 3. 将压缩包内的 `BlitzDoubleRelics` 文件夹解压到游戏目录下的 `mods`，保留同目录内的 DLL 和 JSON。
