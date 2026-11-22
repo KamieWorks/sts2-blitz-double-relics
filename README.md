@@ -6,11 +6,11 @@
 
 ## 安装
 
-Steam 玩家可直接订阅[创意工坊版](https://steamcommunity.com/sharedfiles/filedetails/?id=3844150316)。订阅前请移除手动安装的副本。手动安装步骤如下。
+Steam 玩家可直接订阅[创意工坊版](https://steamcommunity.com/sharedfiles/filedetails/?id=3844150316)。订阅前请移除手动安装的副本。也可以从源码构建并手动安装。
 
-1. 下载 Releases 中的 `BlitzDoubleRelics-0.1.2.zip`。
+1. 按下方步骤构建，将产物 DLL 和 JSON 放到 `BlitzDoubleRelics` 文件夹中。
 2. 退出游戏。在 Steam 库中右键游戏，选择「管理」→「浏览本地文件」。
-3. 将压缩包内的 `BlitzDoubleRelics` 文件夹解压到游戏目录下的 `mods`，保留同目录内的 DLL 和 JSON。
+3. 将 `BlitzDoubleRelics` 文件夹复制到游戏目录下的 `mods`，保留同目录内的 DLL 和 JSON。
 4. 所有玩家启动游戏。`godot.log` 中的 `[BlitzDoubleRelics] 0.1.2 active` 表示当前游戏已经启用规则。
 
 仅在已核对的 `v0.113.1` 修订 `d09d48e5` 上启用。更新游戏后，其他版本会使用官方规则。如果官方已安排两轮，Mod 会跳过该宝箱。切换到其他版本后可取消订阅，让所有玩家使用相同的 Mod 列表。
@@ -23,7 +23,7 @@ Blitz treasure rooms offer two rounds of shared relic picks in 2–4 player co-o
 
 Every player needs the same mod version. Requires the Slay the Spire 2 Steam beta `v0.113.1`. Standard and solo Blitz treasure rooms retain their existing behavior. No mod dependencies.
 
-Extract the `BlitzDoubleRelics` folder from the release zip into the game's `mods` folder, then launch the game. The `[BlitzDoubleRelics] 0.1.2 active` line in `godot.log` confirms the rules are active. Only the reviewed game revision `d09d48e5` is enabled. Other game versions use their native rules, and a chest already configured for two rounds is left to the game. When moving to a newer game version, unsubscribe on all players to keep their mod lists in sync. Two-player selection and contested picks were verified live on the first release. The updated hand animation and four-player layout still await live verification.
+Subscribe through the Steam Workshop or build the mod and copy the `BlitzDoubleRelics` folder into the game's `mods` folder, then launch the game. The `[BlitzDoubleRelics] 0.1.2 active` line in `godot.log` confirms the rules are active. Only the reviewed game revision `d09d48e5` is enabled. Other game versions use their native rules, and a chest already configured for two rounds is left to the game. When moving to a newer game version, unsubscribe on all players to keep their mod lists in sync. Two-player selection and contested picks were verified live on the first release. The updated hand animation and four-player layout still await live verification.
 
 ## Build from source
 
