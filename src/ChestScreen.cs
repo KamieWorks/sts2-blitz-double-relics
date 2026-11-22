@@ -74,6 +74,11 @@ internal static class ChestScreen
             }
         }
 
+        private static void RestorePointingTexture(NHandImage hand)
+        {
+            hand.GetNode<TextureRect>("TextureRect").Texture = hand.Player.Character.ArmPointingTexture;
+        }
+
         private static async Task Finish(Task animation, NTreasureRoomRelicCollection screen, IRunState runState,
             NHandImageCollection hands, ChestRounds.ChestRound round, Synchronizer synchronizer)
         {
@@ -82,7 +87,14 @@ internal static class ChestScreen
                 return;
 
             foreach (var player in runState.Players)
-                hands.GetHand(player.NetId)?.SetFrozenForRelicAwards(false);
+            {
+                NHandImage? hand = hands.GetHand(player.NetId);
+                if (hand is null)
+                    continue;
+
+                hand.SetFrozenForRelicAwards(false);
+                RestorePointingTexture(hand);
+            }
 
             round.AnimatingFirstRound = false;
             VotesChanged(synchronizer)?.Invoke();

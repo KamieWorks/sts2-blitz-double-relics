@@ -6,12 +6,12 @@
 
 ## 安装
 
-1. 下载 Releases 中的 `BlitzDoubleRelics-0.1.0.zip`。
+1. 下载 Releases 中的 `BlitzDoubleRelics-0.1.1.zip`。
 2. 退出游戏。在 Steam 库中右键游戏，选择「管理」→「浏览本地文件」。
 3. 将压缩包内的 `BlitzDoubleRelics` 文件夹解压到游戏目录下的 `mods`，保留同目录内的 DLL 和 JSON。
 4. 所有玩家启动游戏。`godot.log` 中的 `[BlitzDoubleRelics] 0.1.0 active` 表示当前游戏已经启用规则。
 
-`0.1.0` 是预览版。已在 `v0.113.1` 的 Windows 游戏程序集上通过构建和补丁检查。实际双人和四人宝箱测试仍待确认。
+`0.1.1` 是预览版。已在 `v0.113.1` 的 Windows 游戏程序集上通过构建和补丁检查。实际双人和四人宝箱测试仍待确认。
 
 ## English
 
