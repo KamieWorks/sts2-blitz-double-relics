@@ -10,14 +10,20 @@ public static class ModEntry
 {
     internal const string HarmonyId = "blitz-double-relics.multiplayer-treasure";
     internal const string SupportedVersion = "v0.113.1";
+    internal const string SupportedCommit = "d09d48e5";
+
+    internal static bool SupportsBuild(string? version, string? commit) =>
+        version == SupportedVersion && commit == SupportedCommit;
     internal const string LogPrefix = "[BlitzDoubleRelics]";
 
     public static void Initialize()
     {
-        string? version = ReleaseInfoManager.Instance.ReleaseInfo?.Version;
-        if (version != SupportedVersion)
+        ReleaseInfo? release = ReleaseInfoManager.Instance.ReleaseInfo;
+        string? version = release?.Version;
+        string? commit = release?.Commit;
+        if (!SupportsBuild(version, commit))
         {
-            Log.Warn($"{LogPrefix} Unsupported game version {version ?? "unknown"}; expected {SupportedVersion}.");
+            Log.Info($"{LogPrefix} Inactive on {version ?? "unknown version"} ({commit ?? "unknown revision"}). Supported build: {SupportedVersion} ({SupportedCommit}).");
             return;
         }
 

@@ -6,12 +6,14 @@
 
 ## 安装
 
-1. 下载 Releases 中的 `BlitzDoubleRelics-0.1.1.zip`。
+1. 下载 Releases 中的 `BlitzDoubleRelics-0.1.2.zip`。
 2. 退出游戏。在 Steam 库中右键游戏，选择「管理」→「浏览本地文件」。
 3. 将压缩包内的 `BlitzDoubleRelics` 文件夹解压到游戏目录下的 `mods`，保留同目录内的 DLL 和 JSON。
-4. 所有玩家启动游戏。`godot.log` 中的 `[BlitzDoubleRelics] 0.1.0 active` 表示当前游戏已经启用规则。
+4. 所有玩家启动游戏。`godot.log` 中的 `[BlitzDoubleRelics] 0.1.2 active` 表示当前游戏已经启用规则。
 
-`0.1.1` 是预览版。已在 `v0.113.1` 的 Windows 游戏程序集上通过构建和补丁检查。实际双人和四人宝箱测试仍待确认。
+仅在已核对的 `v0.113.1` 修订 `d09d48e5` 上启用。更新游戏后，其他版本会使用官方规则。如果官方已安排两轮，Mod 会跳过该宝箱。切换到其他版本后可取消订阅，让所有玩家使用相同的 Mod 列表。
+
+双人联机已验证两轮选择和争抢猜拳。`0.1.2` 的手势回归和四人界面仍待实机确认。
 
 ## English
 
@@ -19,7 +21,7 @@ Blitz treasure rooms offer two rounds of shared relic picks in 2–4 player co-o
 
 Every player needs the same mod version. Requires the Slay the Spire 2 Steam beta `v0.113.1`. Standard and solo Blitz treasure rooms retain their existing behavior. No mod dependencies.
 
-Extract the `BlitzDoubleRelics` folder from the release zip into the game's `mods` folder, then launch the game. The `[BlitzDoubleRelics] 0.1.0 active` line in `godot.log` confirms the rules are active. This is a preview build. The managed checks passed with the Windows game assemblies. Live multiplayer verification is pending.
+Extract the `BlitzDoubleRelics` folder from the release zip into the game's `mods` folder, then launch the game. The `[BlitzDoubleRelics] 0.1.2 active` line in `godot.log` confirms the rules are active. Only the reviewed game revision `d09d48e5` is enabled. Other game versions use their native rules, and a chest already configured for two rounds is left to the game. When moving to a newer game version, unsubscribe on all players to keep their mod lists in sync. Two-player selection and contested picks were verified live on the first release. The updated hand animation and four-player layout still await live verification.
 
 ## Build from source
 

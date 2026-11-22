@@ -30,10 +30,11 @@ internal static class Checks
     {
         CheckLiveAssemblyPatchTargets();
         CheckModeScope();
+        CheckBuildScope();
         CheckVotesResetAndSessionReplacement();
         CheckSimultaneousSlotRemoval();
         CheckFallbackRelicOrder();
-        Console.WriteLine("Five checks passed against the installed game and Harmony assemblies.");
+        Console.WriteLine("Six checks passed against the installed game and Harmony assemblies.");
     }
 
     private static void CheckLiveAssemblyPatchTargets()
@@ -60,13 +61,22 @@ internal static class Checks
     {
         foreach (int players in new[] { 2, 3, 4 })
         {
-            Require(ChestRounds.Applies(GameMode.Blitz, players, NetGameType.Host), "Host must run the rule");
-            Require(ChestRounds.Applies(GameMode.Blitz, players, NetGameType.Client), "Client must run the rule");
+            Require(ChestRounds.Applies(GameMode.Blitz, players, NetGameType.Host, 1), "Host must run the rule");
+            Require(ChestRounds.Applies(GameMode.Blitz, players, NetGameType.Client, 1), "Client must run the rule");
         }
-        Require(!ChestRounds.Applies(GameMode.Blitz, 1, NetGameType.Singleplayer), "Single-player Blitz is unchanged");
-        Require(!ChestRounds.Applies(GameMode.Standard, 2, NetGameType.Host), "Standard treasure is unchanged");
-        Require(!ChestRounds.Applies(GameMode.Blitz, 2, NetGameType.Singleplayer), "Fake multiplayer is excluded");
-        Require(!ChestRounds.Applies(GameMode.Blitz, 2, NetGameType.Replay), "Replay is excluded");
+        Require(!ChestRounds.Applies(GameMode.Blitz, 1, NetGameType.Singleplayer, 1), "Single-player Blitz is unchanged");
+        Require(!ChestRounds.Applies(GameMode.Standard, 2, NetGameType.Host, 1), "Standard treasure is unchanged");
+        Require(!ChestRounds.Applies(GameMode.Blitz, 2, NetGameType.Singleplayer, 1), "Fake multiplayer is excluded");
+        Require(!ChestRounds.Applies(GameMode.Blitz, 2, NetGameType.Replay, 1), "Replay is excluded");
+        Require(!ChestRounds.Applies(GameMode.Blitz, 2, NetGameType.Host, 2), "Keep the game's native two rounds");
+    }
+
+    private static void CheckBuildScope()
+    {
+        Require(ModEntry.SupportsBuild("v0.113.1", "d09d48e5"), "The supported build must load");
+        Require(!ModEntry.SupportsBuild("v0.113.2", "d09d48e5"), "A newer game version must stay inactive");
+        Require(!ModEntry.SupportsBuild("v0.113.1", "ffffffff"), "An unverified build of the same version must stay inactive");
+        Require(!ModEntry.SupportsBuild("v0.113.1", null), "Missing build information must stay inactive");
     }
 
     private static void CheckVotesResetAndSessionReplacement()

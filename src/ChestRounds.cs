@@ -23,8 +23,9 @@ internal static class ChestRounds
         return synchronizer is not null && Sessions.TryGetValue(synchronizer, out round!);
     }
 
-    internal static bool Applies(GameMode mode, int players, NetGameType netType) =>
-        mode == GameMode.Blitz && players is >= 2 and <= 4 && netType is NetGameType.Host or NetGameType.Client;
+    internal static bool Applies(GameMode mode, int players, NetGameType netType, int originalRounds) =>
+        originalRounds == 1 && mode == GameMode.Blitz && players is >= 2 and <= 4 &&
+        netType is NetGameType.Host or NetGameType.Client;
 
     internal static ChestRound Start(Synchronizer synchronizer)
     {
@@ -55,7 +56,7 @@ internal static class ChestRounds
             List<RelicModel>? ____currentRelics, RelicGrabBag ____sharedGrabBag, Rng ____rng, ref int ____roundsLeft)
         {
             NetGameType netType = RunManager.Instance.NetService?.Type ?? NetGameType.None;
-            if (____currentRelics is null || !Applies(____runState.GameMode, ____runState.Players.Count, netType))
+            if (____currentRelics is null || !Applies(____runState.GameMode, ____runState.Players.Count, netType, ____roundsLeft))
                 return;
 
             // Use the game's shared grab bag and seeded RNG on every participant.
