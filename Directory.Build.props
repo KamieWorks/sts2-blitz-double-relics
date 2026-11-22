@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <STS2ManagedDir Condition="'$(STS2ManagedDir)' == ''">$(STS2_MANAGED_DIR)</STS2ManagedDir>
+  </PropertyGroup>
+  <Target Name="CheckGameReferences" BeforeTargets="ResolveAssemblyReferences">
+    <Error Condition="!Exists('$(STS2ManagedDir)/sts2.dll') Or !Exists('$(STS2ManagedDir)/0Harmony.dll') Or !Exists('$(STS2ManagedDir)/GodotSharp.dll')"
+           Text="Set STS2ManagedDir or STS2_MANAGED_DIR to the game's managed assembly directory." />
+  </Target>
+</Project>

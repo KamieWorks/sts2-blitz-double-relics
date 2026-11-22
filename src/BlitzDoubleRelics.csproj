@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Version>0.1.0</Version>
+    <DebugType>embedded</DebugType>
+    <AssemblyName>BlitzDoubleRelics</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="sts2" HintPath="$(STS2ManagedDir)/sts2.dll" Private="false" />
+    <Reference Include="0Harmony" HintPath="$(STS2ManagedDir)/0Harmony.dll" Private="false" />
+    <Reference Include="GodotSharp" HintPath="$(STS2ManagedDir)/GodotSharp.dll" Private="false" />
+    <None Update="BlitzDoubleRelics.json" CopyToOutputDirectory="PreserveNewest" />
+    <InternalsVisibleTo Include="BlitzDoubleRelics.Checks" />
+  </ItemGroup>
+</Project>

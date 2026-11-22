@@ -1,0 +1,12 @@
+{
+  "id": "BlitzDoubleRelics",
+  "name": "极速双遗物 / Blitz Double Relics",
+  "author": "Blitz Double Relics contributors",
+  "description": "Two rounds of shared treasure relic picks in multiplayer Blitz. / 极速联机模式的宝箱可以选两轮遗物。",
+  "version": "0.1.0",
+  "has_dll": true,
+  "has_pck": false,
+  "dependencies": [],
+  "affects_gameplay": true,
+  "min_game_version": "v0.113.1"
+}

@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../src/BlitzDoubleRelics.csproj" />
+    <Reference Include="sts2" HintPath="$(STS2ManagedDir)/sts2.dll" Private="false" />
+    <Reference Include="0Harmony" HintPath="$(STS2ManagedDir)/0Harmony.dll" Private="false" />
+    <Reference Include="GodotSharp" HintPath="$(STS2ManagedDir)/GodotSharp.dll" Private="false" />
+  </ItemGroup>
+</Project>
